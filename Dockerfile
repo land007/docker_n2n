@@ -13,5 +13,10 @@ RUN cd / \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/* /n2n
 
+RUN echo $(date "+%Y-%m-%d_%H:%M:%S") >> /.image_times && \
+	echo $(date "+%Y-%m-%d_%H:%M:%S") > /.image_time && \
+	echo "land007/n2n" >> /.image_names && \
+	echo "land007/n2n" > /.image_name
+
 #docker build -t land007/n2n:latest .
 #> docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t land007/n2n:latest --push .
